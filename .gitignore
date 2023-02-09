@@ -1,0 +1,9 @@
+/.idea
+/lets-meet-frontend/node_modules
+/lets-meet-frontend/*.log*
+/lets-meet-frontend/.nuxt
+/lets-meet-frontend/.nitro
+/lets-meet-frontend/.cache
+/lets-meet-frontend/.output
+/lets-meet-frontend/.env
+/lets-meet-frontend/dist

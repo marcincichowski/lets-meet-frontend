@@ -1,0 +1,62 @@
+@import "bulma/sass/utilities/_all";
+
+$primary: #d7490c;
+$primary-invert: findColorInvert($primary);
+$primary-light: findLightColor($primary);
+$primary-dark: findDarkColor($primary);
+
+$danger: #ff3860;
+$danger-invert: findColorInvert($danger);
+$danger-light: findLightColor($danger);
+$danger-dark: findDarkColor($danger);
+
+$light: #006991;
+$light-invert: findColorInvert($light);
+
+$dark: #005675;
+$dark-invert: findColorInvert($dark);
+
+$black: black;
+$black-invert: white;
+
+$colors: (
+        "primary": (
+                $primary,
+                $primary-invert,
+                $primary-light,
+                $primary-dark
+        ),
+        "danger": (
+                $danger,
+                $danger-invert,
+                $danger-light,
+                $danger-dark
+        ),
+        "light": (
+                $light,
+                $light-invert
+        ),
+        "dark": (
+                $dark,
+                $dark-invert
+        ),
+        "black": (
+                $black,
+                $black-invert
+        )
+);
+
+$pagination-current-background-color: $primary;
+$pagination-current-border-color: $primary;
+$steps-previous-color: $grey-lighter;
+$steps-active-color: $grey-lighter;
+
+$tabs-link-active-color: $primary;
+$tabs-link-active-border-bottom-color: $primary;
+
+$link: #4a4a4a;
+$link-hover: $primary;
+
+@import "bulma/bulma";
+@import '@oruga-ui/theme-bulma/dist/scss/bulma';
+

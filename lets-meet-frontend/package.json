@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "nuxt": "^3.0.0"
+  },
+  "dependencies": {
+    "@oruga-ui/oruga-next": "^0.5.10",
+    "@oruga-ui/theme-bulma": "^0.2.8",
+    "@pinia/nuxt": "^0.4.6",
+    "pinia": "^2.0.29",
+    "pinia-plugin-persistedstate": "^3.0.2",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "sweetalert2": "^11.7.0"
+  }
+}
