@@ -1,34 +1,102 @@
+<script setup>
+
+    import {useRouter, onMounted} from "#imports"
+    import {useLoginStore} from "~/stores/login";
+    import Swal from "sweetalert2";
+
+    const loginStore = useLoginStore();
+    const router = useRouter();
+
+    const username = loginStore.username;
+    const role = loginStore.role;
+
+    const route = router.name;
+    console.log(router.currentRoute.value.path);
+
+
+const logout = async () => {
+    await loginStore.logout();
+    Swal.fire({
+        text: "Poprawnie wylogowano!",
+        icon: "success",
+        footer: '',
+        confirmButtonColor: "#0c5dd7"
+    });
+    router.push('/login')
+}
+</script>
 <template>
-  <!--<div>
-    <AppHeader />
-    <AppMenu />
-    <header>
-      <nav>
-        <ul>
-          <li><NuxtLink to="/">Index</NuxtLink></li>
-          <li><NuxtLink to="/about">About</NuxtLink></li>
-          <li><NuxtLink to="/login.vue">Login</NuxtLink></li>
-          <li><NuxtLink to="/slide">slide</NuxtLink></li>
-          <li><NuxtLink to="/posts/1">Post 1</NuxtLink></li>
-          <li><NuxtLink to="/posts/2">Post 2</NuxtLink></li>
-        </ul>
-      </nav>
-    </header>
-    <slot />
-    <AppFooter />
-  </div>
-  -->
-  <div class="full">
-      <div class="flex-container">
-        <div class="box is-flex is-flex-direction-column is-align-content-center login-box">
-          <h1>LOGGED IN</h1>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <NuxtLink class="navbar-item" to="/">
+                <img src="~/assets/img/result.svg" alt="Discover Nuxt 3" />
+            </NuxtLink>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-      </div>
-  </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div v-if="username">
+                        Zalogowany jako: {{ username }}
+                    </div>
+                    <div v-else class="buttons">
+                        <a class="button is-primary">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="full">
+        <aside class="menu p-3 m-4" style="width: 300px;background: white; float: left; border-radius: 10px;">
+            <ul class="menu-list" v-if="role==='user'">
+                <p class="menu-label">
+                    Menu
+                </p>
+                <li ><NuxtLink to="/" :class="{ 'is-active': router.currentRoute.value.path==='/'}">Strona główna</NuxtLink></li>
+                <li><NuxtLink to="/meetings" :class="{ 'is-active': router.currentRoute.value.path==='/meetings'}">Wyszukiwarka spotkań</NuxtLink></li>
+                <li><NuxtLink to="/personal-meetings" :class="{ 'is-active': router.currentRoute.value.path==='/personal-meetings'}">Twoje spotkania</NuxtLink></li>
+                <li><NuxtLink to="/games" :class="{ 'is-active': router.currentRoute.value.path==='/games'}">Spis gier</NuxtLink></li>
+                <li><a @click.native="logout">Logout</a></li>
+            </ul>
+            <ul class="menu-list" v-if="role!=='user'">
+                <p class="menu-label">
+                    Menu
+                </p>
+                <li><NuxtLink to="/" :class="{ 'is-active': router.currentRoute.value.path==='/'}">Strona główna</NuxtLink></li>
+                <li><NuxtLink to="/meetings" :class="{ 'is-active': router.currentRoute.value.path==='/meetings'}">Wyszukiwarka spotkań</NuxtLink></li>
+                <li><NuxtLink to="/personal-meetings" :class="{ 'is-active': router.currentRoute.value.path==='/personal-meetings'}">Twoje spotkania</NuxtLink></li>
+                <li><NuxtLink to="/games" :class="{ 'is-active': router.currentRoute.value.path==='/games'}">Spis gier</NuxtLink></li>
+                <p class="menu-label">
+                    Sekcja Administratora
+                </p>
+                <li><NuxtLink to="/applications" :class="{ 'is-active': router.currentRoute.value.path==='/applications'}">Wnioski</NuxtLink></li>
+                <li><NuxtLink to="/settings" :class="{ 'is-active': router.currentRoute.value.path==='/settings'}">Ustawienia</NuxtLink></li>
+                <li><a @click.native="logout">Logout</a></li>
+            </ul>
+        </aside>
+        <slot />
+
+    </div>
+
 
 </template>
 <style>
-
+.menu-list li a{
+    border-radius: 10px;
+}
 .page-enter-active,.page-leave-active {  transition: all 0.4s;}.page-enter-from,.page-leave-to {  opacity: 0;  filter: blur(1rem);}
 .flex-container{
   height: 100%;
@@ -70,5 +138,3 @@
 
 }
 </style>
-<script setup>
-</script>

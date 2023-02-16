@@ -7,14 +7,13 @@
     middleware: 'auth'
   });
 
-  console.log('123');
 
 
 </script>
 <template>
   <div class="content p-4">
     <article class="p-2" style="float: left; background: white; border-radius: 10px; width: calc(100vw - 370px);">
-      <h1 class="m-2">Witamy w LET'S MEET</h1>
+      <h1 class="m-2">Ustawienia</h1>
     </article>
     <div class="is-flex pl-0 pt-2 pr-0 is-justify-content-space-between" style="width: calc(100vw - 370px);">
 
