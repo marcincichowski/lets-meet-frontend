@@ -10,9 +10,7 @@
     const username = loginStore.username;
     const role = loginStore.role;
 
-    const route = router.name;
     console.log(router.currentRoute.value.path);
-
 
 const logout = async () => {
     await loginStore.logout();
@@ -26,10 +24,11 @@ const logout = async () => {
 }
 </script>
 <template>
+  <div>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <NuxtLink class="navbar-item" to="/">
-                <img src="~/assets/img/result.svg" alt="Discover Nuxt 3" />
+                <img src="~/assets/img/logo.png" alt="logo" />
             </NuxtLink>
 
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -67,8 +66,8 @@ const logout = async () => {
                 </p>
                 <li ><NuxtLink to="/" :class="{ 'is-active': router.currentRoute.value.path==='/'}">Strona główna</NuxtLink></li>
                 <li><NuxtLink to="/meetings" :class="{ 'is-active': router.currentRoute.value.path==='/meetings'}">Wyszukiwarka spotkań</NuxtLink></li>
-                <li><NuxtLink to="/personal-meetings" :class="{ 'is-active': router.currentRoute.value.path==='/personal-meetings'}">Twoje spotkania</NuxtLink></li>
-                <li><NuxtLink to="/games" :class="{ 'is-active': router.currentRoute.value.path==='/games'}">Spis gier</NuxtLink></li>
+                <li><NuxtLink to="/personal-meetings" :class="{ 'is-active': router.currentRoute.value.path==='/add-meeting' || router.currentRoute.value.path==='/personal-meetings'}">Twoje spotkania</NuxtLink></li>
+                <li><NuxtLink to="/games" :class="{ 'is-active': router.currentRoute.value.path==='/add-game' || router.currentRoute.value.path==='/games'}">Spis gier</NuxtLink></li>
                 <li><a @click.native="logout">Logout</a></li>
             </ul>
             <ul class="menu-list" v-if="role!=='user'">
@@ -77,8 +76,8 @@ const logout = async () => {
                 </p>
                 <li><NuxtLink to="/" :class="{ 'is-active': router.currentRoute.value.path==='/'}">Strona główna</NuxtLink></li>
                 <li><NuxtLink to="/meetings" :class="{ 'is-active': router.currentRoute.value.path==='/meetings'}">Wyszukiwarka spotkań</NuxtLink></li>
-                <li><NuxtLink to="/personal-meetings" :class="{ 'is-active': router.currentRoute.value.path==='/personal-meetings'}">Twoje spotkania</NuxtLink></li>
-                <li><NuxtLink to="/games" :class="{ 'is-active': router.currentRoute.value.path==='/games'}">Spis gier</NuxtLink></li>
+                <li><NuxtLink to="/personal-meetings" :class="{ 'is-active': router.currentRoute.value.path==='/add-meeting' || router.currentRoute.value.path==='/personal-meetings'}">Twoje spotkania</NuxtLink></li>
+                <li><NuxtLink to="/games" :class="{ 'is-active': router.currentRoute.value.path==='/add-game' || router.currentRoute.value.path==='/games'}">Spis gier</NuxtLink></li>
                 <p class="menu-label">
                     Sekcja Administratora
                 </p>
@@ -90,14 +89,14 @@ const logout = async () => {
         <slot />
 
     </div>
-
+  </div>
 
 </template>
 <style>
 .menu-list li a{
     border-radius: 10px;
 }
-.page-enter-active,.page-leave-active {  transition: all 0.4s;}.page-enter-from,.page-leave-to {  opacity: 0;  filter: blur(1rem);}
+.page-enter-active,.page-leave-active {  transition: all 0.3s;}.page-enter-from,.page-leave-to {  opacity: 0;  filter: blur(1rem);}
 .flex-container{
   height: 100%;
   width: 60%;

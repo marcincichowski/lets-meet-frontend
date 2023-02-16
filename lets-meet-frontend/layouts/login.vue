@@ -50,17 +50,3 @@ background:linear-gradient(192deg, rgba(12, 215, 199, 1) 0%, rgba(3, 38, 125, 1)
 
 }
 </style>
-<script setup>
-/*
-import {useFetch} from "nuxt/app";
-import {definePageMeta} from "nuxt/dist/pages/runtime";
-
-//const { data: game } = await useFetch('http://127.0.0.1:8000/backend/game/get_all')
-const formdata = new FormData();
-formdata.append("username", "adm1in");
-formdata.append("password", "admi1n");
-const { data: game } = await useFetch('http://127.0.0.1:8000/backend/authorize', {
-  method: 'POST',
-  body: formdata
-});*/
-</script>

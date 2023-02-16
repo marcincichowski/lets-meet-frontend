@@ -15,6 +15,10 @@
           <p class="card-header-title">
             Spotkania
           </p>
+
+          <NuxtLink to="/add-game" class="button is-light m-2" aria-label="Wnioskuj o grę">
+            Wnioskuj o grę
+          </NuxtLink>
         </header>
         <div class="card-content">
           <div class="content">

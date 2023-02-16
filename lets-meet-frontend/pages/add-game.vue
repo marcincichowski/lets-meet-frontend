@@ -1,0 +1,54 @@
+<template>
+  <div class="content p-4">
+    <article class="p-2" style="float: left; background: white; border-radius: 10px; width: calc(100vw - 370px);">
+      <h1 class="m-2">Dodaj grę</h1>
+    </article>
+
+  <div class="is-flex pl-0 pt-2 pr-0 is-justify-content-space-between" style="width: calc(100vw - 370px);">
+
+    <div class="card" style="border-radius: 10px; width: 100%">
+      <header class="card-header">
+        <p class="card-header-title">
+          Wniosek dodawania gry
+        </p>
+      </header>
+      <div class="content">
+        <div class="card-content">
+          <o-field
+              horizontal
+              label="Nazwa gry"
+          >
+            <o-input name="subject" expanded></o-input>
+          </o-field>
+
+          <o-field horizontal label="Liczba osób">
+            <o-input
+                name="person_count"
+                type="number"
+                expanded
+            ></o-input>
+          </o-field>
+          <o-field horizontal label="Gra online">
+            <o-checkbox style="margin-top: 3px"></o-checkbox>
+          </o-field>
+          <o-field horizontal label="Adres URL do sklepu">
+            <o-input
+                name="url"
+                type="text"
+                expanded
+            ></o-input>
+          </o-field>
+          <o-field horizontal label="Opis">
+            <o-input type="textarea"></o-input>
+          </o-field>
+
+          <o-field horizontal
+          ><!-- Label left empty for spacing -->
+            <o-button variant="primary">Wnioskuj</o-button>
+          </o-field>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</template>

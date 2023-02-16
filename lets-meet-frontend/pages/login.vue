@@ -35,7 +35,7 @@
         layout: "login"
     });
 
-    onMounted(async () => {
+    onCreated(async () => {
         if (process.client && loginStore.isLoggedIn) router.push("/")
     });
 

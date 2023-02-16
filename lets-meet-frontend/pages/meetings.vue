@@ -10,6 +10,9 @@
           <p class="card-header-title">
             Spotkania
           </p>
+          <NuxtLink to="/add-meeting" class="button is-light m-2" aria-label="Dodaj spotkanie">
+            Dodaj spotkanie
+          </NuxtLink>
         </header>
         <div class="card-content">
           <div class="content">
