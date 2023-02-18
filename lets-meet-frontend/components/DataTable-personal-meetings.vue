@@ -21,6 +21,7 @@
                     {{ props.row.fields.meeting_date }}
                 </o-table-column>
                 <o-table-column field="pk" v-slot="props" label="Akcje">
+
                     {{ props.row.pk }}
                 </o-table-column>
             </o-table>
